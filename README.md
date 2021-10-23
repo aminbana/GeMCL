@@ -1,6 +1,6 @@
 <br><br><br>
 
-# Generative vs Discriminative: Rethinking The Meta-Continual Learning (NeurIPS 2021 submission)
+# Generative vs Discriminative: Rethinking The Meta-Continual Learning (NeurIPS 2021)
 
 In this repository we provide PyTorch implementations for GeMCL; a generative approach for meta-continual learning. The directory outline is as follows:
 
