@@ -158,4 +158,4 @@ The pre-training configuarations are also available in `TrainParams.py`.
 * [OML/MRCL](https://github.com/khurramjaved96/mrcl)
 * [ANML](https://github.com/uvm-neurobotics-lab/ANML)
 * [Omniglot](https://github.com/brendenlake/omniglot) dataset under [MIT License](https://github.com/brendenlake/omniglot/blob/master/LICENSE)
-* [Mini-Imagenet](https://github.com/yaoyao-liu/mini-imagenet-tools/blob/main/LICENSE) dataset under [MIT License](https://github.com/yaoyao-liu/mini-imagenet-tools/blob/main/LICENSE)
+* [Mini-Imagenet](https://github.com/yaoyao-liu/mini-imagenet-tools) dataset under [MIT License](https://github.com/yaoyao-liu/mini-imagenet-tools/blob/main/LICENSE)
