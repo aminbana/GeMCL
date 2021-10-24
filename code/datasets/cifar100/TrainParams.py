@@ -21,9 +21,9 @@ class MetaTrainParams():
     def __init__(self):
         super().__init__()
 
-        self.experiment_name = "cifar100_PGLR"  # Name of experiment
+        self.experiment_name = "cifar100_ProtoNet"  # Name of experiment
 
-        self.modelClass = PGLR
+        self.modelClass = ProtoNet
         self.backBone = ProtoNetBack
         self.temperature = 1
 
