@@ -45,7 +45,7 @@ class CIFAR100Dataset(CIFAR100):
         inner_index = index % self.elements_per_class
         associated_class = self.active_classes[outer_index]
         img, target = class_idx_2_image_list[associated_class][inner_index], associated_class
-        img = np.array (Image.fromarray(img))
+        # print ("/////////" , type(img))
         if self.transform is not None:
             img = self.transform(img)
         if self.target_transform is not None:

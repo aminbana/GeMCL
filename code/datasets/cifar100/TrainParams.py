@@ -91,23 +91,15 @@ class MetaTrainParams():
         self.writer_path = self.directory + "report"
 
 
-        self.meta_train_transforms =  transform = transforms.Compose([
-                                        random_crop_resize_flip,
-                                    transforms.ToTensor(), 
-                                    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
-                                    ])
-    
-        self.transforms_for_test = transforms.Compose([ center_crop_dict,
-                                                 transforms.ToTensor(),
-                                                 transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
-                                                 ])  
-                                                 
+        self.meta_train_transforms = transforms.Compose(
+            [transforms.ToTensor(), transforms.Resize((self.input_size[1], self.input_size[2])), transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
+        self.transforms_for_test = self.meta_train_transforms
 
-        self.pretrain_transforms =  transform = transforms.Compose([
-                                        random_crop_resize_flip,
-                                        transforms.ToTensor(), 
-                                        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
-                                    ])
+        self.meta_transforms = transforms.Compose(
+            [transforms.ToTensor(), transforms.Resize((self.input_size[1], self.input_size[2])), transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
+
+        self.pretrain_transforms = transforms.Compose(
+            [transforms.ToTensor(), transforms.Resize((self.input_size[1], self.input_size[2])), transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
 
         self.pretrain_save_path = "../experiments/cifar/" + self.date_string + "_" + self.experiment_name + "/"
         self.pretrain_classes = range(80)

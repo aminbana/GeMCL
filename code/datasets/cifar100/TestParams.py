@@ -38,11 +38,7 @@ class MetaTestParams():
         assert (self.query_num_other_tasks <= len (self.support_complement_classes))
 
         
-        self.meta_transforms = transforms.Compose([ center_crop_dict,
-                                                 transforms.ToTensor(),
-                                                 transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
-                                                 ])  
-
+        self.meta_transforms = transforms.Compose([transforms.ToTensor(), transforms.Resize((self.input_size[1], self.input_size[2])), transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
         self.num_workers = 0 # Warning change to 4 on colab
 
 
