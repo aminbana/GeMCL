@@ -12,7 +12,7 @@ from tqdm.auto import tqdm
 import sys
 from torch.utils.tensorboard import SummaryWriter
 
-if not (sys.argv[1] == "M" or sys.argv[1] == "O"):
+if not (sys.argv[1] == "M" or sys.argv[1] == "O" or sys.argv[1] == "C"):
     sys.argv[1] = "O"
 
 if (sys.argv[1] == "O"):
