@@ -21,7 +21,7 @@ class MetaTrainParams():
     def __init__(self):
         super().__init__()
 
-        self.experiment_name = "imagenet_Bayesian_final" #Name of experiment
+        self.experiment_name = "cifar100_bayesian"  # Name of experiment
 
         self.modelClass = Bayesian
         self.backBone = ProtoNetBack
@@ -29,15 +29,15 @@ class MetaTrainParams():
 
         self.dist = 'euc'
 
-        self.dataset_name = 'imgnetnpy'
-        
+        self.dataset_name = 'cifar100'
+
         self.input_size = (3,84,84)
-        self.dataset_path = "../datasets/miniimagenet/" #'Path of the dataset
+        self.dataset_path = "../datasets/cifar100/"  # 'Path of the dataset
 
         self.meta_train_steps = 30000
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.late_validation = self.meta_train_steps - self.meta_train_steps // 3
-        
+
 
         self.meta_lr = 1e-3 #meta-level outer learning rate
 
@@ -53,40 +53,40 @@ class MetaTrainParams():
         self.support_num_train_tasks = 10 #meta n_way
         self.support_inner_step = 10 #support n_shots
         self.support_batch_size = 1
-        
+
 
         self.query_train_inner_step = 30 # query n_shots
         self.query_other_inner_step = 0
         self.query_num_other_tasks  = 0
         self.query_batch_size       = 1
         self.query_num_train_tasks  = self.support_num_train_tasks
-        
+
         assert (self.query_batch_size * self.query_train_inner_step + self.support_inner_step * self.support_batch_size <= 600)
-        
-       
-        self.classes = list(range(64))
-        self.support_classes = list(range(64))  
+
+
+        self.classes = list(range(70))
+        self.support_classes = list(range(70))
         self.support_complement_classes = [a for a in self.classes if not a in self.support_classes]
-        
-        assert (len (self.classes) <= 64)
+
+        assert (len (self.classes) <= 70)
         assert (all ([clas in self.classes for clas in self.support_classes]))
         assert (self.support_num_train_tasks <= len (self.support_classes))
         assert (self.query_num_train_tasks <= len (self.support_classes))
-        assert (self.query_num_other_tasks <= len (self.support_complement_classes))        
+        assert (self.query_num_other_tasks <= len (self.support_complement_classes))
 
         self.num_workers = 0
-        
+
         self.seed = 90 #Seed
-        
+
         self.eval_every = 500 # shows validation period
-        self.test_on_best = False
-        
-        
+        self.test_on_best = True
+
+
         self.save_check_point = True
-        
+
 
         self.date_string = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        self.directory = "../experiments/miniimagenet/" + self.date_string + "_" + self.experiment_name + "/"
+        self.directory = "../experiments/cifar/" + self.date_string + "_" + self.experiment_name + "/"
         self.check_point_path = self.directory + "check_point"
         self.writer_path = self.directory + "report"
 
@@ -94,24 +94,24 @@ class MetaTrainParams():
         self.meta_train_transforms =  transform = transforms.Compose([
                                         random_crop_resize_flip,
                                     transforms.ToTensor(), 
-                                    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+                                    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
                                     ])
     
         self.transforms_for_test = transforms.Compose([ center_crop_dict,
                                                  transforms.ToTensor(),
-                                                 transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+                                                 transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
                                                  ])  
                                                  
 
         self.pretrain_transforms =  transform = transforms.Compose([
                                         random_crop_resize_flip,
                                         transforms.ToTensor(), 
-                                        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+                                        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
                                     ])
 
-        self.pretrain_save_path = "../experiments/miniimagenet/" + self.date_string + "_" + self.experiment_name + "/"
+        self.pretrain_save_path = "../experiments/cifar/" + self.date_string + "_" + self.experiment_name + "/"
         self.pretrain_classes = range(80)
-        self.epochs_pretrain = 1000 
+        self.epochs_pretrain = 1000
         self.pretrain_batch_size = 64
         self.pretrain_num_workers = 4
         self.pretrain_lr = 1e-3

@@ -202,6 +202,9 @@ if __name__=="__main__":
     elif (dataset_name == "M"):
         from datasets.miniimagenet.TrainParams import MetaTrainParams
         from datasets.miniimagenet.TestParams  import MetaTestParams
+    elif (dataset_name == "C"):
+        from datasets.cifar100.TrainParams import MetaTrainParams
+        from datasets.cifar100.TestParams  import MetaTestParams
 
     from dataset import Dataset
 

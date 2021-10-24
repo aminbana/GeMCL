@@ -23,6 +23,10 @@ elif (sys.argv[1] == "M"):
     from datasets.miniimagenet.TrainParams import MetaTrainParams
     from datasets.miniimagenet.TestParams  import MetaValidParams
     from datasets.miniimagenet.TestParams  import MetaTestParams
+elif (sys.argv[1] == "C"):
+    from datasets.cifar100.TrainParams import MetaTrainParams
+    from datasets.cifar100.TestParams  import MetaValidParams
+    from datasets.cifar100.TestParams  import MetaTestParams
 
 
 params_train = MetaTrainParams()
