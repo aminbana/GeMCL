@@ -171,7 +171,7 @@ def report_plot_values(model, dataset_test, dataset_name):
         way_keys = {5:[5],10:[10],15:[15],20:[5,10,15,20]}
     elif dataset_name == "C":
         shot_keys = [30]
-        way_keys = {30:[3,5,10,15,20,25,30]}
+        way_keys = {3:[3],5:[5],10:[10],15:[15],20:[20],25:[25], 30:[3,5,10,15,20,25,30]}
 
     for way_key, way_list in way_keys.items():
         results[way_key] = {}

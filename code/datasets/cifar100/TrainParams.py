@@ -42,9 +42,9 @@ class MetaTrainParams():
         self.meta_lr = 1e-3 #meta-level outer learning rate
 
         if self.modelClass == PGLR:
-            self.inner_lr = 5 #task-level inner update learning rate for discriminative models
+            self.inner_lr = 1 #task-level inner update learning rate for discriminative models
         elif self.modelClass == LR:
-            self.inner_lr = 1e-2 #task-level inner update learning rate for discriminative models
+            self.inner_lr = 1e-4 #task-level inner update learning rate for discriminative models
 
         self.lr_scheduler_gamma = 0.5 # gamma for meta-lr scheduler
         self.lr_scheduler_step = 3000 # steps for meta-lr scheduler
