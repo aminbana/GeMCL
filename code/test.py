@@ -166,9 +166,12 @@ def report_plot_values(model, dataset_test, dataset_name):
                     600:[10, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600]}
 
         shot_keys = [15]
-    else:
+    elif dataset_name == "M":
         shot_keys = [5, 30, 60, 90, 120, 150, 180, 210, 240]
         way_keys = {5:[5],10:[10],15:[15],20:[5,10,15,20]}
+    elif dataset_name == "C":
+        shot_keys = [30]
+        way_keys = {30:[3,5,10,15,20,25,30]}
 
     for way_key, way_list in way_keys.items():
         results[way_key] = {}
