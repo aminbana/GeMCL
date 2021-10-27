@@ -15,7 +15,10 @@ root
             ├── mini-imagenet
                   ├── TrainParams.py  # mini-imagenet training parameters configuration
                   ├── TestParams.py   # mini-imagenet testing parameters configuration
-            
+            ├── cifar
+                  ├── TrainParams.py  # cifar 100 training parameters configuration
+                  ├── TestParams.py   # cifar 100 testing parameters configuration
+
        ├── model              # The path containing proposed models
        ├── train.py           # The main script for training
        ├── test.py            # The main script for testing
@@ -24,15 +27,17 @@ root
  ├── datasets             # The location in which datasets are placed
        ├── omniglot
        ├── miniimagenet
+       ├── cifar
 
  ├── experiments          # The location in which accomplished experiments are stored
        ├── omniglot
        ├── miniimagenet
+       ├── cifar
 ```
 In the following sections we will first provide details about how to setup the dataset. Then the instructions for installing package dependencies, training and testing is provided.
 
 # Configuring the Dataset
-In this paper we have used [Omniglot](https://github.com/brendenlake/omniglot) and [Mini-Imagenet](https://github.com/dragen1860/LearningToCompare-Pytorch/issues/4) datasets. The omniglot dataset is a light-weight dataset and is automatically downloaded into `datasets/omniglot/` whenever needed. however the mini-imagenet dataset need to be manually downloaded and placed in `datasets/miniimagenet/`. The following instructions will show how to properly setup this dataset:
+In this paper we have used [Omniglot](https://github.com/brendenlake/omniglot), [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html) and [Mini-Imagenet](https://github.com/dragen1860/LearningToCompare-Pytorch/issues/4) datasets. The omniglot and cifar-100 are light-weight datasets and are automatically downloaded into `datasets/omniglot/` or `datasets/cifar/` whenever needed. however the mini-imagenet dataset need to be manually downloaded and placed in `datasets/miniimagenet/`. The following instructions will show how to properly setup this dataset:
 
 - First download the images from this [link](https://drive.google.com/open?id=1HkgrkAwukzEZA0TpO7010PkAOREb2Nuk) (provided by the owners) and the `train.csv,val.csv,test.csv` splits from this [link](https://github.com/twitter/meta-learning-lstm/tree/master/data/miniImagenet).
 
