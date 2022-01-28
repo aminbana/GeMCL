@@ -1,5 +1,6 @@
 import datetime
 import torch
+from model.GMM import GMM5
 from model.ProtoNet import ProtoNet
 from model.Bayesian import Bayesian
 from model.MAP import MAP
